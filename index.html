@@ -20,8 +20,19 @@
             <source src="background.mp4" type="video/mp4">
         </video>
     </div>
-    <div class="overlay"></div>
-    <header class="header">
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="logo-512.png" alt="Super Games Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#help">Help</a></li>
+        </ul>
+    </nav>
+    <header class="header" id="home">
         <img src="logo-512.png" alt="Super Games Logo" class="logo">
         <h1 class="site-title">Super Games</h1>
         <p class="tagline">Ultimate Gaming Universe</p>
@@ -61,6 +72,23 @@
                 <p id="gameMessage" class="game-message"></p>
             </div>
         </div>
+        <!-- Additional Sections -->
+        <section id="about" class="info-section">
+            <h2 class="section-title">About Us</h2>
+            <p>Welcome to Super Games, your ultimate gaming universe! We offer over 200+ games across various categories, ensuring a seamless and immersive gaming experience. Founded by Vikas Tiwari, our mission is to bring the best browser-based games to users worldwide.</p>
+        </section>
+        <section id="terms" class="info-section">
+            <h2 class="section-title">Terms & Conditions</h2>
+            <p>By using Super Games, you agree to our terms of service. All games are sourced from legal and copyright-free platforms. We are not responsible for any external links or third-party content. For full terms, please contact us.</p>
+        </section>
+        <section id="contact" class="info-section">
+            <h2 class="section-title">Contact Us</h2>
+            <p>Have questions or feedback? Reach out to us at <a href="mailto:support@supergames.com">support@supergames.com</a>. Follow us on social media for updates!</p>
+        </section>
+        <section id="help" class="info-section">
+            <h2 class="section-title">Help</h2>
+            <p>Need assistance? Check our FAQ section or contact our support team at <a href="mailto:support@supergames.com">support@supergames.com</a>. We’re here to help you enjoy the best gaming experience!</p>
+        </section>
     </main>
     <!-- AdSense Ad Unit (Footer Ad - Placeholder) -->
     <div class="ad-container footer-ad">
@@ -75,6 +103,12 @@
         </script>
     </div>
     <footer class="footer">
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#terms">Terms & Conditions</a>
+            <a href="#contact">Contact</a>
+            <a href="#help">Help</a>
+        </div>
         <p>All Rights Reserved by Vikas Tiwari (Owner)</p>
     </footer>
     <!-- GSAP and ScrollTrigger for animations (open-source) -->

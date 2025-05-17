@@ -1,24 +1,22 @@
-/* Tailwind CSS via CDN (open-source, lightweight) */
-@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-
-/* Custom styles for ultra extreme pro advanced design */
 :root {
-    --primary: #FF007A; /* Neon pink */
-    --secondary: #00DDEB; /* Neon cyan */
-    --bg-dark: #0F0F1B; /* Dark background */
-    --text-light: #E6E6FA; /* Light text */
-    --glow: #FF00FF; /* Glow effect */
-    --golden: #FFD700; /* Golden for exit button */
-    --holo-blue: #00BFFF; /* Holographic blue */
-    --holo-purple: #8A2BE2; /* Holographic purple */
+    --background: #0F0F1B;
+    --text: #E5E5E5;
+    --glow: #FF007A;
+    --golden: #FFD700;
+    --secondary: #00D4FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Exo 2', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, var(--bg-dark), #1A1A2E);
-    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+    background: var(--background);
+    color: var(--text);
     overflow-x: hidden;
     position: relative;
 }
@@ -29,9 +27,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    overflow: hidden;
     z-index: -1;
-    opacity: 0.3;
 }
 
 .bg-video video {
@@ -40,23 +37,47 @@ body {
     object-fit: cover;
 }
 
-.overlay {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.nav-logo .logo {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 0 10px var(--glow));
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--glow);
 }
 
 .header {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 6rem 2rem 3rem;
     position: relative;
-    z-index: 10;
-    border-bottom: 3px solid var(--primary);
 }
 
 .logo {
@@ -68,186 +89,168 @@ body {
 }
 
 .logo:hover {
-    transform: rotate(360deg) scale(1.1);
+    transform: rotate(360deg);
 }
 
 .site-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4rem;
-    color: var(--primary);
-    text-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary);
-    margin: 0;
-    animation: glow 1.5s ease-in-out infinite alternate, float 3s ease-in-out infinite;
+    font-size: 3.5rem;
+    color: var(--glow);
+    text-shadow: 0 0 20px var(--glow);
+    margin-bottom: 1rem;
 }
 
 .tagline {
+    font-family: 'Exo 2', sans-serif;
     font-size: 1.5rem;
     color: var(--secondary);
-    margin: 0.5rem 0 0 3rem;
-    text-align: left;
-    font-style: italic;
     text-shadow: 0 0 10px var(--secondary);
-    opacity: 0.9;
-    animation: fadeIn 2s ease-in-out;
 }
 
 .ad-container {
+    max-width: 1200px;
+    margin: 2rem auto;
     text-align: center;
-    margin: 1rem 0;
     padding: 1rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.footer-ad {
-    margin-top: 2rem;
 }
 
 .search-section {
-    text-align: center;
-    padding: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .search-bar {
     width: 100%;
-    max-width: 600px;
-    padding: 1rem;
-    border: 2px solid var(--primary);
-    border-radius: 50px;
-    background: rgba(255,255,255,0.1);
-    color: var(--text-light);
-    font-size: 1.2rem;
-    box-shadow: 0 0 20px rgba(0,221,235,0.3);
-    transition: all 0.5s ease;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
 .search-bar:focus {
     outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 40px var(--secondary);
-    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--secondary);
+}
+
+.category-section, .games-section, .info-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
 }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    color: var(--primary);
+    font-size: 2.5rem;
+    color: var(--glow);
+    text-shadow: 0 0 15px var(--glow);
     text-align: center;
-    margin: 2rem 0;
-    text-shadow: 0 0 15px var(--primary);
-    animation: glow 1.5s ease-in-out infinite alternate;
+    margin-bottom: 2rem;
 }
 
 .category-list {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
 }
 
-.category-list button {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-family: 'Orbitron', sans-serif;
+.category-item {
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    color: var(--secondary);
     cursor: pointer;
-    box-shadow: 0 0 15px var(--primary);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
-.category-list button:hover {
-    transform: scale(1.1) rotate(3deg);
-    box-shadow: 0 0 30px var(--secondary);
+.category-item:hover {
+    background: var(--secondary);
+    color: #000;
+    box-shadow: 0 0 15px var(--secondary);
+}
+
+.category-item.active {
+    background: var(--glow);
+    color: #000;
+    box-shadow: 0 0 15px var(--glow);
 }
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1600px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
 .game-card {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     overflow: hidden;
-    backdrop-filter: blur(15px);
-    transition: transform 0.6s ease, box-shadow 0.6s ease;
-    border: 2px solid var(--primary);
-    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .game-card:hover {
-    transform: perspective(800px) rotateX(8deg) rotateY(8deg) translateY(-15px);
-    box-shadow: 0 15px 40px rgba(0,221,235,0.6);
-}
-
-.game-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--primary);
-    transition: transform 0.5s ease;
-}
-
-.game-card:hover img {
     transform: scale(1.05);
+    box-shadow: 0 0 20px var(--glow);
 }
 
-.game-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
-    color: var(--text-light);
-    margin: 0.8rem;
+.game-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--glow);
+}
+
+.game-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text);
     text-align: center;
-    text-shadow: 0 0 8px var(--primary);
+    padding: 0.5rem;
+    text-shadow: 0 0 5px var(--glow);
 }
 
-.game-card p {
-    font-size: 1rem;
-    color: var(--secondary);
-    margin: 0.5rem;
-    text-align: center;
-}
-
-.game-card button {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    margin: 1rem auto;
+.play-btn {
     display: block;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--glow);
+    color: #000;
+    border: none;
     font-family: 'Orbitron', sans-serif;
-    box-shadow: 0 0 15px var(--primary);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.game-card button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px var(--secondary);
+.play-btn:hover {
+    background: var(--secondary);
+    box-shadow: 0 0 15px var(--secondary);
 }
 
 .game-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.95);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-modal-content {
@@ -261,6 +264,25 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.game-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+.game-message {
+    position: absolute;
+    bottom: 20px;
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .exit-btn {
@@ -281,57 +303,86 @@ body {
 
 .exit-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 30px var(--golden);
+    box-shadow: 0 0 20px var(--golden);
 }
 
-.game-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: #000;
+.info-section {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 2rem;
 }
 
-.game-message {
-    text-align: center;
-    color: var(--text-light);
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    text-shadow: 0 0 8px var(--primary);
+.info-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.info-section a {
+    color: var(--glow);
+    text-decoration: none;
+}
+
+.info-section a:hover {
+    color: var(--secondary);
 }
 
 .footer {
-    background: rgba(0,0,0,0.9);
     text-align: center;
-    padding: 1.5rem;
-    color: var(--text-light);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 2rem;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--glow);
+}
+
+.footer p {
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    border-top: 3px solid var(--primary);
+    color: var(--text);
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 8px var(--primary), 0 0 15px var(--secondary); }
-    to { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary); }
+.footer-ad {
+    margin: 2rem auto;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 0.9; transform: translateY(0); }
+@media (max-width: 900px) {
+    .site-title { font-size: 2.5rem; }
+    .tagline { font-size: 1.2rem; }
+    .section-title { font-size: 2rem; }
+    .game-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .nav-links { gap: 1rem; }
+    .nav-links li a { font-size: 1rem; }
 }
 
 @media (max-width: 600px) {
-    .site-title { font-size: 2.5rem; }
-    .game-grid { grid-template-columns: 1fr; }
-    .search-bar { max-width: 90%; font-size: 1rem; }
-    .logo { width: 80px; }
-    .tagline { margin-left: 1.5rem; font-size: 1.2rem; }
+    .header { padding: 5rem 1rem 2rem; }
+    .logo { width: 100px; }
+    .site-title { font-size: 2rem; }
+    .tagline { font-size: 1rem; }
+    .search-bar { padding: 0.6rem 1rem; font-size: 1rem; }
+    .category-item { font-size: 0.9rem; padding: 0.4rem 1rem; }
+    .game-title { font-size: 1rem; }
+    .play-btn { font-size: 0.9rem; padding: 0.4rem; }
     .exit-btn { top: 10px; left: 10px; font-size: 1rem; padding: 0.5rem 1rem; }
-    .category-list button { font-size: 1rem; padding: 0.6rem 1.5rem; }
-    .game-card h3 { font-size: 1.2rem; }
-    .game-card button { font-size: 1rem; padding: 0.6rem 1.5rem; }
+    .navbar { padding: 0.5rem 1rem; }
+    .nav-logo .logo { width: 60px; }
+    .nav-links { gap: 0.5rem; }
+    .nav-links li a { font-size: 0.9rem; }
 }

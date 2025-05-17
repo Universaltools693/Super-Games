@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Tetris",
+        "category": "Puzzle",
+        "thumbnail": "https://via.placeholder.com/150?text=Tetris",
+        "playLink": "https://tetris.com/play-tetris"
+    },
+    {
+        "id": 2,
+        "title": "Fortnite",
+        "category": "Most Popular",
+        "thumbnail": "https://via.placeholder.com/150?text=Fortnite",
+        "playLink": "https://www.epicgames.com/fortnite"
+    },
+    {
+        "id": 3,
+        "title": "Super Mario Bros.",
+        "category": "Most Popular",
+        "thumbnail": "https://via.placeholder.com/150?text=Super+Mario",
+        "playLink": "https://emulator.example.com/supermario"
+    },
+    {
+        "id": 4,
+        "title": "The Legend of Zelda",
+        "category": "Most Popular",
+        "thumbnail": "https://via.placeholder.com/150?text=Zelda",
+        "playLink": "https://emulator.example.com/zelda"
+    },
+    {
+        "id": 5,
+        "title": "Genshin Impact",
+        "category": "RPG",
+        "thumbnail": "https://via.placeholder.com/150?text=Genshin",
+        "playLink": "https://genshin.mihoyo.com/"
+    }
+]

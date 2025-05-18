@@ -10,10 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio('click-sound.mp3');
 
     const games = [
-        { id: 1, title: "Tetris", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Tetris", embedUrl: "https://www.retrogames.cc/embed/42134-tetris-nes.html", aspectRatio: "4:3" },
-        { id: 2, title: "Pac-Man", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Pac-Man", embedUrl: "https://www.retrogames.cc/embed/42135-pac-man.html", aspectRatio: "4:3" },
-        { id: 3, title: "Snake", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Snake", embedUrl: "https://www.retrogames.cc/embed/42136-snake.html", aspectRatio: "16:9" },
-        // Smaller list with guaranteed working URLs
+        { id: 1, title: "Tetris", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Tetris", embedUrl: "https://www.retrogames.cc/embed/42134-tetris-nes.html" },
+        { id: 2, title: "Pac-Man", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Pac-Man", embedUrl: "https://www.retrogames.cc/embed/42135-pac-man.html" },
+        { id: 3, title: "Snake", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Snake", embedUrl: "https://www.retrogames.cc/embed/42136-snake.html" },
+        { id: 4, title: "Space Invaders", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Space+Invaders", embedUrl: "https://www.retrogames.cc/embed/42137-space-invaders.html" },
+        { id: 5, title: "Galaga", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Galaga", embedUrl: "https://www.retrogames.cc/embed/42138-galaga.html" },
+        { id: 6, title: "Donkey Kong", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Donkey+Kong", embedUrl: "https://www.retrogames.cc/embed/42139-donkey-kong.html" },
+        { id: 7, title: "Frogger", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Frogger", embedUrl: "https://www.retrogames.cc/embed/42140-frogger.html" },
+        { id: 8, title: "Centipede", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Centipede", embedUrl: "https://www.retrogames.cc/embed/42141-centipede.html" },
+        { id: 9, title: "Asteroids", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Asteroids", embedUrl: "https://www.retrogames.cc/embed/42142-asteroids.html" },
+        { id: 10, title: "Breakout", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Breakout", embedUrl: "https://www.retrogames.cc/embed/42143-breakout.html" },
+        { id: 11, title: "Defender", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Defender", embedUrl: "https://www.retrogames.cc/embed/42144-defender.html" },
+        { id: 12, title: "Q*bert", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Q*bert", embedUrl: "https://www.retrogames.cc/embed/42145-q-bert.html" },
+        { id: 13, title: "Pong", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Pong", embedUrl: "https://www.retrogames.cc/embed/42146-pong.html" },
+        { id: 14, title: "Missile Command", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Missile+Command", embedUrl: "https://www.retrogames.cc/embed/42147-missile-command.html" },
+        { id: 15, title: "Burger Time", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Burger+Time", embedUrl: "https://www.retrogames.cc/embed/42148-burger-time.html" },
+        { id: 16, title: "Joust", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Joust", embedUrl: "https://www.retrogames.cc/embed/42149-joust.html" },
+        { id: 17, title: "Dig Dug", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Dig+Dug", embedUrl: "https://www.retrogames.cc/embed/42150-dig-dug.html" },
+        { id: 18, title: "Pole Position", category: "Racing", thumbnail: "https://via.placeholder.com/150?text=Pole+Position", embedUrl: "https://www.retrogames.cc/embed/42151-pole-position.html" },
+        { id: 19, title: "Tempest", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Tempest", embedUrl: "https://www.retrogames.cc/embed/42152-tempest.html" },
+        { id: 20, title: "Arkanoid", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Arkanoid", embedUrl: "https://www.retrogames.cc/embed/42153-arkanoid.html" },
     ];
 
     const categories = [...new Set(games.map(game => game.category))];
@@ -80,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     gameFrame.src = game.embedUrl;
                     gameMessage.textContent = '';
                     gameModal.style.display = 'flex';
-                    adjustGameFrame(game.aspectRatio);
                     gsap.fromTo(gameModal, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
                 } else {
                     gameFrame.src = '';
@@ -90,37 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-    }
-
-    function adjustGameFrame(aspectRatio) {
-        const modalContent = document.querySelector('.game-modal-content');
-        if (aspectRatio === '9:16') {
-            modalContent.style.width = '100%';
-            modalContent.style.height = '100%';
-            gameFrame.style.width = '40vw';
-            gameFrame.style.height = '80vh';
-            gameFrame.style.maxWidth = '600px';
-            gameFrame.style.maxHeight = '960px';
-        } else if (aspectRatio === '16:9') {
-            modalContent.style.width = '100%';
-            modalContent.style.height = '100%';
-            gameFrame.style.width = '80vw';
-            gameFrame.style.height = '45vw';
-            gameFrame.style.maxWidth = '1280px';
-            gameFrame.style.maxHeight = '720px';
-        } else {
-            modalContent.style.width = '100%';
-            modalContent.style.height = '100%';
-            gameFrame.style.width = '80vw';
-            gameFrame.style.height = '60vw';
-            gameFrame.style.maxWidth = '800px';
-            gameFrame.style.maxHeight = '600px';
-        }
-        gameFrame.style.margin = 'auto';
-        gameFrame.style.position = 'absolute';
-        gameFrame.style.top = '50%';
-        gameFrame.style.left = '50%';
-        gameFrame.style.transform = 'translate(-50%, -50%)';
     }
 
     searchBar.addEventListener('input', () => {

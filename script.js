@@ -10,11 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio('click-sound.mp3');
 
     const games = [
-        { id: 1, title: "Tetris", category: "Puzzle", thumbnail: "thumbnails/tetris.jpg", embedUrl: "https://www.retrogames.cc/embed/42134-tetris-nes.html", aspectRatio: "4:3" },
-        { id: 2, title: "Subway Surfers", category: "Racing", thumbnail: "thumbnails/subway-surfers.jpg", embedUrl: "https://www.poki.com/en/g/subway-surfers", aspectRatio: "9:16" },
-        { id: 3, title: "Slither.io", category: "Action", thumbnail: "thumbnails/slither-io.jpg", embedUrl: "https://slither.io/", aspectRatio: "16:9" },
-        // Add more games with working embed URLs and aspect ratios
-        // For now, keeping it minimal to ensure they work
+        { id: 1, title: "Tetris", category: "Puzzle", thumbnail: "https://via.placeholder.com/150?text=Tetris", embedUrl: "https://www.retrogames.cc/embed/42134-tetris-nes.html", aspectRatio: "4:3" },
+        { id: 2, title: "Pac-Man", category: "Arcade", thumbnail: "https://via.placeholder.com/150?text=Pac-Man", embedUrl: "https://www.retrogames.cc/embed/42135-pac-man.html", aspectRatio: "4:3" },
+        { id: 3, title: "Snake", category: "Classic", thumbnail: "https://via.placeholder.com/150?text=Snake", embedUrl: "https://www.retrogames.cc/embed/42136-snake.html", aspectRatio: "16:9" },
+        // Smaller list with guaranteed working URLs
     ];
 
     const categories = [...new Set(games.map(game => game.category))];
@@ -77,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const gameId = btn.parentElement.dataset.id;
                 const game = games.find(g => g.id == gameId);
                 if (game.embedUrl) {
+                    gameFrame.src = '';
                     gameFrame.src = game.embedUrl;
                     gameMessage.textContent = '';
                     gameModal.style.display = 'flex';
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     gsap.fromTo(gameModal, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
                 } else {
                     gameFrame.src = '';
-                    gameMessage.textContent = 'This game cannot be played directly in the browser. Please download it from its official website.';
+                    gameMessage.textContent = 'This game cannot be played right now. Please try another game.';
                     gameModal.style.display = 'flex';
                     gsap.fromTo(gameModal, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
                 }
@@ -93,23 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function adjustGameFrame(aspectRatio) {
+        const modalContent = document.querySelector('.game-modal-content');
         if (aspectRatio === '9:16') {
-            gameFrame.style.width = '40%';
-            gameFrame.style.height = '80%';
+            modalContent.style.width = '100%';
+            modalContent.style.height = '100%';
+            gameFrame.style.width = '40vw';
+            gameFrame.style.height = '80vh';
             gameFrame.style.maxWidth = '600px';
             gameFrame.style.maxHeight = '960px';
         } else if (aspectRatio === '16:9') {
-            gameFrame.style.width = '80%';
-            gameFrame.style.height = '45%';
+            modalContent.style.width = '100%';
+            modalContent.style.height = '100%';
+            gameFrame.style.width = '80vw';
+            gameFrame.style.height = '45vw';
             gameFrame.style.maxWidth = '1280px';
             gameFrame.style.maxHeight = '720px';
         } else {
-            gameFrame.style.width = '80%';
-            gameFrame.style.height = '60%';
+            modalContent.style.width = '100%';
+            modalContent.style.height = '100%';
+            gameFrame.style.width = '80vw';
+            gameFrame.style.height = '60vw';
             gameFrame.style.maxWidth = '800px';
             gameFrame.style.maxHeight = '600px';
         }
         gameFrame.style.margin = 'auto';
+        gameFrame.style.position = 'absolute';
+        gameFrame.style.top = '50%';
+        gameFrame.style.left = '50%';
+        gameFrame.style.transform = 'translate(-50%, -50%)';
     }
 
     searchBar.addEventListener('input', () => {
